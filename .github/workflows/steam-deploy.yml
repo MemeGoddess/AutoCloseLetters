@@ -13,14 +13,7 @@ jobs:
         with:
             path: 'mod'
 
-      - name: cleanup-repo
-        run: |
-            rm -rf mod/.git
-            rm -rf mod/.github/workflows
-            rm -rf mod/.github
-            rm -rf mod/.gitignore
-            rm -rf mod/.gitattributes
-            rm -rf mod/README.md
+      
 
       - name: test
         run: |
@@ -31,6 +24,14 @@ jobs:
         with:
           files: 'mod/1.5/Assemblies/Autocloseletters.dll, mod/1.4/Assemblies/Autocloseletters.dll, mod/About/About.xml, mod/About/Preview.png'
 
+      - name: cleanup-repo
+        run: |
+            rm -rf mod/.git
+            rm -rf mod/.github/workflows
+            rm -rf mod/.github
+            rm -rf mod/.gitignore
+            rm -rf mod/.gitattributes
+            rm -rf mod/README.md
       # - name: steam-workshop-upload
       #   uses: m00nl1ght-dev/steam-workshop-deploy@v3
       #   continue-on-error: true
