@@ -1,4 +1,4 @@
-name: steam-deploy
+﻿name: steam-deploy
 
 on:
   push:
@@ -26,6 +26,14 @@ jobs:
         run: |
             tree mod
 
+      - name: Check if file exists
+        run: |
+            if [ ! -f "mod/1.5/Assemblies/Autocloseletters.dll" ]; then
+                echo "❌ Required file not found: mod/1.5/Assemblies/Autocloseletters.dll"
+                exit 1
+            else
+                echo "✅ File exists: mod/1.5/Assemblies/Autocloseletters.dll"
+            fi
       # - name: steam-workshop-upload
       #   uses: m00nl1ght-dev/steam-workshop-deploy@v3
       #   continue-on-error: true
