@@ -1,0 +1,22 @@
+name: Check Files Exist
+description: Fails if any of the given files do not exist.
+inputs:
+  files:
+    description: 'Comma-separated list of file paths to check'
+    required: true
+runs:
+  using: composite
+  steps:
+    - name: Check files
+      shell: bash
+      run: |
+        IFS=',' read -ra FILES <<< "${{ inputs.files }}"
+        for file in "${FILES[@]}"; do
+          file="$(echo "$file" | xargs)" # Trim whitespace
+          if [ ! -f "$file" ]; then
+            echo "❌ Required file not found: $file"
+            exit 1
+          else
+            echo "✅ File exists: $file"
+          fi
+        done
