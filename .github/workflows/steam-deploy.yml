@@ -24,7 +24,7 @@ jobs:
 
       - name: test
         run: |
-            tree .
+            tree -a .
 
       - name: Check if required files exist
         uses: ./mod/.github/actions/check-files-exist
