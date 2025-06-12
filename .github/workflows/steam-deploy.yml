@@ -27,7 +27,7 @@ jobs:
             tree .
 
       - name: Check if required files exist
-        uses: ./.github/actions/check-files-exist
+        uses: ./mod/.github/actions/check-files-exist
         with:
           files: 'mod/1.5/Assemblies/Autocloseletters.dll, mod/1.4/Assemblies/Autocloseletters.dll, mod/About/About.xml, mod/About/Preview.png'
 
