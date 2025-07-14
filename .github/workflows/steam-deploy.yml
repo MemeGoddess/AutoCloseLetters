@@ -16,7 +16,7 @@ jobs:
       - name: Check if required files exist
         uses: ./mod/.github/actions/check-files-exist
         with:
-          files: 'mod/1.5/Assemblies/Autocloseletters.dll, mod/1.4/Assemblies/Autocloseletters.dll, mod/About/About.xml, mod/About/Preview.png'
+          files: 'mod/1.5/Assemblies/Autocloseletters.dll, mod/1.4/Assemblies/Autocloseletters.dll, mod/About/About.xml, mod/About/Preview.png, mod/1.6/Assemblies/Autocloseletters.dll'
 
       - name: Cleanup
         run: |

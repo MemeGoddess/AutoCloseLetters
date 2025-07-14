@@ -16,7 +16,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>none</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\1.5\Assemblies\</OutputPath>
+    <OutputPath>..\..\1.6\Assemblies\</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
@@ -42,20 +42,21 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <PackageReference Include="Krafs.Rimworld.Ref">
-      <Version>1.5.4409</Version>
+      <Version>1.6.4518</Version>
+      <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Lib.Harmony" GeneratePathProperty="true" PrivateAssets="All">
       <Version>2.2.1</Version>
     </PackageReference>
-    <PackageReference Include="UnlimitedHugs.Rimworld.HugsLib" GeneratePathProperty="true" PrivateAssets="All">
-      <Version>11.0.5</Version>
+    <PackageReference Include="UnlimitedHugs.Rimworld.HugsLib" GeneratePathProperty="true" PrivateAssets="all">
+      <Version>12.0.0</Version>
+      <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
   </ItemGroup>
   <Target Name="RemovePackageDllsFromOutput" AfterTargets="ResolveReferences">
     <ItemGroup>
       <ReferencePath Remove="@(ReferencePath)" Condition="'%(FileName)' == 'Lib.Harmony'" />
       <ReferencePath Remove="@(ReferencePath)" Condition="'%(FileName)' == 'UnlimitedHugs.Rimworld.HugsLib'" />
-
     </ItemGroup>
   </Target>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
