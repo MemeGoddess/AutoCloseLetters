@@ -33,7 +33,7 @@ namespace AutoCloseLetters
         [HarmonyPrefix]
         public static void DeleteLettersInstantly()
         {
-            Find.LetterStack.LettersListForReading.Where(x => x.arrivalTick < Find.TickManager.TicksGame - (60000 * Prefs.AutosaveIntervalDays)).ToList().ForEach(Remove);
+            Find.LetterStack.LettersListForReading.Where(x => x.arrivalTick < Find.TickManager.TicksGame - (60000 * Prefs.AutosaveIntervalDays) && (!(x is LetterWithTimeout timeout) || timeout.disappearAtTick == -1)).ToList().ForEach(Remove);
         }
 
         private static void Remove(Letter letter)
