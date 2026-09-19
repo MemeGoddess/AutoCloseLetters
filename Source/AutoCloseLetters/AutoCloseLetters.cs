@@ -8,21 +8,13 @@ using Verse;
 
 namespace AutoCloseLetters
 {
-    [StaticConstructorOnStartup]
-    public static class AutoCloseLetters
-    {
-        static AutoCloseLetters()
-        {
-            var harmony = new Harmony("com.AutoCloseLetters.patch");
-            harmony.PatchAll();
-        }
-    }
 
     public class AutoCloseLettersConfig : Mod
     {
         public AutoCloseLettersConfig(ModContentPack content) : base(content)
         {
-
+            var harmony = new Harmony("com.AutoCloseLetters.patch");
+            harmony.PatchAll();
         }
     }
 
